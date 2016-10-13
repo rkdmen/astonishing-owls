@@ -3,6 +3,9 @@ var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var nodemon = require('gulp-nodemon');
 var babel = require('gulp-babel');
+var browserSync = require('browser-sync').create(); //live reloading
+
+
 
 // The paths to our app files
 var paths = {
@@ -13,8 +16,8 @@ var paths = {
   },
   compiled: {
     scripts: ['compiled/app/**/*.js'],
-    html: ['compiled/app/**/*.html', 'compiled/index.html'],
-    styles: ['compiled/styles/style.css']
+    html: ['compiled/app/**/*.html', 'compiled/index.html']
+    // styles: ['compiled/styles/styles.css']
   },
   server: 'server/server.js'
 };
@@ -46,16 +49,22 @@ gulp.task('start', ['serve'], function () {
 /***************************************
  *                Gulp-Sass
  ***************************************/
-gulp.task('styles', function() {
-    gulp.src('./client/sass/**/*.scss')
+gulp.task('style', function() {
+    gulp.src('./client/sass/*.scss')
         .pipe(sass().on('error', sass.logError)) /**if there is an error parsing your sass by default it will just kill the gulp process, but with this option it will tell us where the error is**/
-        .pipe(gulp.dest('./client/css/'));
+        .pipe(gulp.dest('./client/styles/'));
 });
+
 
 //Watch task, it will sit and wait for files to be saved and then run our task
 gulp.task('default',function() {
-    gulp.watch('.client/sass/**/*.scss',['styles']);
+    gulp.watch('./client/sass/*.scss',['style']);
 });
+
+
+/***************************************
+ *                Live-Reloading
+ ***************************************/
 
 
 
