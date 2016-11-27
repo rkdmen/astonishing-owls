@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+  <body>
+    <header class="navigation col-xs-12">
+      <div class="logo">
+        <img src="../../assets/logo.png"/>
+        <p class="title">Astonishing Owls</p>
+      </div>
+      <div ng-controller="logoutController" class="logout">
+        <a ng-click='logout()' class="btn btn-default">Logout</a>
+      </div>
+    </header>
+
+    <div ng-controller="dashboardView" class="savedSearches col-xs-12">
+      <div class="top-section col-xs-12">
+        <h1 class="title">Saved Searches</h1>
+        <a ng-click="update()" class="btn btn-default">Update Position!</a>
+        <!--<a ng-click="scrollTo('newSearch')" class="btn btn-default">New Search</a>-->
+      </div>
+      <div class="myContainer col-xs-12 col-md-6">
+        <div ng-repeat="item in manipulateData" class="largerContainer col-xs-12 col-md-6">
+            <div class="box">
+              <div class="currency col-xs-6">
+                <div class="sm_container2">
+                  <i class="fa fa-usd faa-ring animated" aria-hidden="true"></i>
+                </div>
+                <div class="sm_container">
+                  {{ item.cxy }}
+                </div>
+              </div>
+              <div class="current col-xs-6">
+                <div class="sm_container">
+                  Current Rate: {{ item.refreshed }}
+                </div>
+                <div class="sm_container">
+                  Gain / Loss: {{ item.boughtAmount * (item.refreshed / item.value - 1 ) | number: 2 }}
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="chart-section col-xs-12 col-md-6">
+
+        <h4 ng-show="data.length > 1">Comparative analytics: position holdings and gain / loss summary</h4>
+        <div class="chart col-xs-12">
+          <canvas id="base" class="chart-bar"
+                  chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options"
+                  chart-series="series" chart-dataset-override="datasetOverride" chart-legend="true">
+          </canvas>
+        </div>
+
+        <h4 ng-show="data.length > 1">Portfolio summary</h4>
+        <div class="chart col-xs-12">
+          <canvas id="pie" class="chart chart-doughnut"
+                  chart-data="marketValues" chart-labels="labels"  chart-legend="true"
+                  chart-colors="colors" chart-options="optionsPie">
+
+          </canvas>
+          <div  ng-if="ngIfShowData">
+            <h4>Today's Position</h4>
+     <!--        <div ng-repeat="(k, v) in objectOfSavedCXY" >{{k}}: ${{v}}</div> -->
+          Total: ${{totalBought}}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="userSearch col-xs-12" id="newSearch">
+
+
+      <div class="border col-xs-12 col-md-6">
+        <h1 class="title">New Search</h1>
+        <form name="currencyList">
+          <label for="repeatSelect"> Currency List: </label>
+          <select ng-model='selectedCurrency' ng-options='y for (x, y) in listOfCurrency'
+                  ng-change='refreshView(); getSelectedCurrency()'></select>
+          <div class="details" ng-show="historyRate.ratesLoaded">
+            <p>{{ selectedCurrency }} - - ( {{ inputCurrency}} )</p>
+            <p>Today's Rate: {{ historyRate.todayRate }}</p>
+            <p>Last Week: {{ historyRate.sevenDaysAgo }}</p>
+            <p>Last Month: {{ historyRate.thirtyDaysAgo }}</p>
+            <p>Last Year: {{ historyRate.yearAgo}}</p>
+          </div>
+        </form>
+        <div ng-show="historyRate.ratesLoaded">
+          <a ng-show="historyRate.buttonShow" class="btn btn-default"
+             ng-click="historyRate.buttonShow = !historyRate.buttonShow">Add to positions</a>
+          <div ng-hide="historyRate.buttonShow">
+            <p>How much would you want to buy? (Amounts in USD)</p>
+            <input type="number" ng-model="boughtAmount">
+            <a class="btn btn-default" ng-click="postToDB(); historyRate.ratesLoaded = !historyRate.ratesLoaded">Confirm
+              purchase</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <footer class="footer col-xs-12">
+      <p>Made with <i class="fa fa-heart faa-pulse animated" aria-hidden="true"></i> by Astonishing Owls Inc. </p>
+    </footer>
+
+
+  </body>
+</html>
+
+

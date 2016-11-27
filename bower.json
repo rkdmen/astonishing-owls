@@ -1,0 +1,27 @@
+{
+  "name": "astonishingowls",
+  "description": "Greenfield project for Astonishing Owls.",
+  "main": "index.js",
+  "authors": [
+    "Sara",
+    "Canh",
+    "John"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/canhtrinh/astonishingowls",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "font-awesome-animation": "^0.0.9",
+    "angular-chart.js": "^1.0.3"
+  }
+}
