@@ -1,10 +1,5 @@
-# astonishingowls
-# Greenfield Project
 
-What’s in these files?
-
-- Two primary sections: client-side architecture and server-side architecture
-    - Client side: driven by Angular module
+ - Client side: driven by Angular module
         - App folder:
             - App.js houses routing mechanism for directing between pages (uses Angular-router)
             - Auth Repository
@@ -35,11 +30,12 @@ What’s in these files?
 
 Installing dependencies and Getting Started
 
+```
 - run “npm install” - all node dependencies are listed in package.json
 - run “bower install” - all client dependencies are listed in the bower.json
 - In a separate tab in the terminal, run “mongod” to start mongo up
 - run “gulp” to start our server and app
-
+```
 API: Open exchange rates api receives current and past foreign currency rate
 
 - Website: openexchangerates.org
