@@ -1,9 +1,8 @@
+<<<<<<< HEAD
 # Greenfield Project
+=======
 
-What’s in these files?
-
-- Two primary sections: client-side architecture and server-side architecture
-    - Client side: driven by Angular module
+ - Client side: driven by Angular module
         - App folder:
             - App.js houses routing mechanism for directing between pages (uses Angular-router)
             - Auth Repository
@@ -40,8 +39,9 @@ Installing dependencies and Getting Started
 - In a separate tab in the terminal, run “mongod” to start mongo up
 - run “gulp” to start our server and app
 ```
+<<<<<<< HEAD
 
-API: Open exchange rates api receives current and past foreign currency rate
+=======
 
 - Website: openexchangerates.org
     - Open Exchange Rates provides a simple, lightweight and portable JSON API with live and historical foreign exchange (forex) rates, via a simple and easy-to-integrate API, in JSON format. Data are tracked and blended algorithmically from multiple reliable sources, ensuring fair and unbiased consistency.
