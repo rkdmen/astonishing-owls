@@ -1,4 +1,3 @@
-# astonishingowls
 # Greenfield Project
 
 What’s in these files?
@@ -35,10 +34,12 @@ What’s in these files?
 
 Installing dependencies and Getting Started
 
+```
 - run “npm install” - all node dependencies are listed in package.json
 - run “bower install” - all client dependencies are listed in the bower.json
 - In a separate tab in the terminal, run “mongod” to start mongo up
 - run “gulp” to start our server and app
+```
 
 API: Open exchange rates api receives current and past foreign currency rate
 
