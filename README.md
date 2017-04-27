@@ -1,5 +1,3 @@
-# Greenfield Project
-=======
 
  - Client side: driven by Angular module
         - App folder:
