@@ -1,48 +1,44 @@
 @import '../modules/variables';
 
 header.navigation {
-    position: absolute;
-    z-index: 1000;
-    background-color: $light-charcoal;
-    height: 100px;
+  position: absolute;
+  z-index: 1000;
+  background-color: $light-charcoal;
+  height: 100px;
 
 
-    .logo {
-        display: inline-block;
-        padding-top: 5px;
+  .logo {
+    display: inline-block;
+    padding-top: 5px;
 
-        img {
-            width: 85px;
-        }
-
-        .title {
-            display: inline-block;
-
-            @media #{$mq-xs} {
-                display: none;
-            }
-        }
-
+    img {
+      width: 85px;
     }
 
-    .logout {
-        float: right;
-        padding-top: 20px;
+    .title {
+      display: inline-block;
 
-        a {
-            @include whiteButton($white);
-        }
+      @media #{$mq-xs} {
+        display: none;
+      }
     }
+  }
 
-    .switchPage {
-        float: right;
-        padding-top: 20px;
+  .logout {
+    float: right;
+    padding-top: 20px;
 
-        a {
-            @include whiteButton($white);
-        }
+    a {
+      @include whiteButton($white);
     }
+  }
 
+  .switchPage {
+    float: right;
+    padding-top: 20px;
 
-
+    a {
+      @include whiteButton($white);
+    }
+  }
 }

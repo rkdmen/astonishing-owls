@@ -1,7 +1,7 @@
 .chart-section {
-    display: none;
+  display: none;
 
-    @media #{$mq-md, $mq-lg, $mq-xlg} {
-        display: block;
-    }
+  @media #{$mq-md, $mq-lg, $mq-xlg} {
+    display: block;
+  }
 }

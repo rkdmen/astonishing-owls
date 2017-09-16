@@ -4,47 +4,47 @@ angular.module('astonishingOwls', [
     'astonishingOwls.search',
     'chart.js',
     'ngRoute'
-])
+  ])
 
-.config(function ($routeProvider) {
-  $routeProvider
+  .config(function($routeProvider) {
+    $routeProvider
       .when('/', {
-          templateUrl: 'app/dashboard/dashboard.html',
-          controller: 'searchCurrency',
-          access: {restricted: true}
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'searchCurrency',
+        access: { restricted: true }
       })
       .when('/dashboard', {
-          templateUrl: 'app/dashboard/dashboard.html',
-          controller: 'searchCurrency',
-          access: {restricted: true}
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'searchCurrency',
+        access: { restricted: true }
       })
       .when('/login', {
-          templateUrl: 'app/auth/login.html',
-          controller: 'loginController'
+        templateUrl: 'app/auth/login.html',
+        controller: 'loginController'
       })
       .when('/logout', {
-          controller: 'logoutController',
-          access: {restricted: true}
+        controller: 'logoutController',
+        access: { restricted: true }
       })
       .when('/register', {
-          templateUrl: 'app/auth/register.html',
-          controller: 'registerController'
+        templateUrl: 'app/auth/register.html',
+        controller: 'registerController'
       })
       .otherwise({
-          redirectTo: '/'
+        redirectTo: '/'
       });
 
-})
+  })
 
-.run(function ($rootScope, $location, $route, AuthService) {
+  .run(function($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart',
-        function (event, next, current) {
-            AuthService.getUserStatus()
-                .then(function () {
-                    if (next.access.restricted && !AuthService.isLoggedIn()) {
-                        $location.path('/login');
-                        $route.reload();
-                    }
-                });
-        });
-});
+      function(event, next, current) {
+        AuthService.getUserStatus()
+          .then(function() {
+            if (next.access.restricted && !AuthService.isLoggedIn()) {
+              $location.path('/login');
+              $route.reload();
+            }
+          });
+      });
+  });
